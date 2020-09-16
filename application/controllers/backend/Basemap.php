@@ -70,6 +70,7 @@ class Basemap extends CI_Controller {
 			$this->load->view('backend_header', $menu);
 			$this->load->view('backend_menu', $menu);		
 
+			$this->form_validation->set_rules('BasemapId', 'Basemap Id', 'required', array('required' => 'You must complete %s.'));
 			$this->form_validation->set_rules('BasemapName', 'Basemap Name', 'required', array('required' => 'You must complete %s.'));
 			$this->form_validation->set_rules('URLBasemap', 'URL Basemap', 'required', array('required' => 'You must complete %s.'));
 			//$this->form_validation->set_rules('Thumbnail', 'File input', 'required', array('required' => 'You must complete %s.'));
@@ -79,6 +80,7 @@ class Basemap extends CI_Controller {
 				$this->load->view('backend/basemap/add');		
 			}else{
 				$data = array(
+					'id' => $this->input->post('BasemapId'),
 					'basemap_name' => $this->input->post('BasemapName'),
 					'url' => $this->input->post('URLBasemap'),
 					'main' => 0,

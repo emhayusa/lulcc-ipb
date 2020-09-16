@@ -24,6 +24,13 @@
             </div>
             <div class="panel-body">
                 <div class="form-group">
+                    <label for="inputbasemapId" class="col-sm-2 control-label">Basemap Id</label>
+                    <div class="col-sm-10">
+                        <input type="input" class="form-control" id="BasemapId" name="BasemapId" placeholder="Basemap Id" value="<?php echo set_value('BasemapId'); ?>">
+                        <span class="text-danger"><?php echo form_error('BasemapId'); ?></span>      
+                    </div>
+                </div>
+				<div class="form-group">
                     <label for="inputbasemapName" class="col-sm-2 control-label">Basemap Name</label>
                     <div class="col-sm-10">
                         <input type="input" class="form-control" id="BasemapName" name="BasemapName" placeholder="Basemap Name" value="<?php echo set_value('BasemapName'); ?>">
