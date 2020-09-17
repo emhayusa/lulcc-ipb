@@ -830,10 +830,12 @@ require([
      "esri/core/watchUtils",
      "esri/identity/IdentityManager",
      "esri/identity/ServerInfo",
+	 "esri/geometry/Extent",
      "esri/geometry/geometryEngine",
      "esri/geometry/Point",
      "esri/geometry/Polyline",
      "esri/geometry/Polygon",
+	 "esri/geometry/projection",
      "esri/geometry/support/webMercatorUtils",
      "esri/geometry/SpatialReference",
      "esri/Graphic",
@@ -872,10 +874,12 @@ require([
     	watchUtils,
     	identityManager,
     	ServerInfo,
+		Extent,
     	geometryEngine,
     	Point,
     	Polyline,
     	Polygon,
+		projection,
     	webMercatorUtils,
     	SpatialReference,
     	Graphic,
@@ -2459,7 +2463,7 @@ require([
   		map = new Map({
 			     basemap: 'satellite',//'osm' //'topo'
 		});
-		
+			
 			//https://geoportal.menlhk.go.id/arcgis/rest/services/KLHK/Kawasan_Hutan_Juli2019/MapServer  
 			/*
 		 var layer = new MapImageLayer({
@@ -3517,7 +3521,39 @@ require([
               if (id === "full-extent") {
                 // if the full-extent action is triggered then navigate
                 // to the full extent of the visible layer
-                view.goTo(layer.fullExtent);
+                console.log(layer.fullExtent);
+				/*
+				const cs1 = new SpatialReference({
+				wkid: 4272 //PE_GCS_ED_1950
+				});
+				*/
+				const cs2 = new SpatialReference({
+				wkid: 4326
+				});
+
+				/*const extent = new Extent({
+				xmin: -186.0,
+				ymin: -42.0,
+				xmax: -179.0,
+				ymax: -38.0
+				});
+				*/
+				//console.log(projection);
+				projection.load().then(function(evt) {
+					var projectedExtents = projection.project(layer.fullExtent,cs2);
+					console.log(projectedExtents);
+					view.goTo(projectedExtents);
+				
+					/*
+					const geogtrans = projection.getTransformations(cs1, cs2, extent);
+					geogtrans.forEach(function(geogtran, index) {
+						geogtran.steps.forEach(function(step, index) {
+						console.log("step wkid: ", step.wkid);
+						});
+					});
+					*/
+				});
+
               } else if (id === "information") {
                 // if the information action is triggered, then
                 // open the item details page of the service layer
