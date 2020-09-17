@@ -29,7 +29,8 @@
                         <?php
                         $service_type = array(
                             '' => '- pilih type -', 
-                            '1' => 'ArcGIS', 
+                            '0' => 'ArcGIS Tile',
+                            '1' => 'ArcGIS Mapserver', 
                             '2' => 'OGC', 
                         );                        
                         echo form_dropdown('ServicesType', $service_type, set_value('ServicesType'), '

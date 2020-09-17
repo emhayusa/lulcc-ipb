@@ -46,8 +46,10 @@
               echo '<td>'.$p->commodity_id.'</td>';
               echo '<td>'.$p->name.'</td>';
                //$label = $p->type == 1 ? 'ArcGIS':'OGC';
-              if ($p->type == 1) {
-                $label = 'ArcGIS';
+              if ($p->type == 0) {
+                $label = 'ArcGIS Tile';
+              }else if ($p->type == 1) {
+                $label = 'ArcGIS Mapserver';
               }else if ($p->type == 2) {
                 $label = 'OGC';
               }else{

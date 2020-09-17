@@ -4091,6 +4091,25 @@ require([
 	     	//console.log(layer.queryExtent());
 	}
 
+	function addLayerArcGISTiledSublayer(id, url, title){
+		 //var url ="https://portal.ina-sdi.or.id/arcgis/rest/services/KSP/KAWASAN_KHUSUS_DAN_TRANSMIGRASI/MapServer"+token;
+    	  var layer = new TileLayer({
+			  id: id,
+    		    url: url,
+        		title: title,
+    		    visible:true
+    	  });
+    	  map.add(layer);
+    	  //console.log(layer);
+  	     $('#layerList').show();
+  	  
+   	  layer.when(function() {
+   	    	if(layer.fullExtent != null){
+   	          //view.goTo(layer.fullExtent);
+   	    	}
+   	  });
+    	
+	}
 	function  populateAttributesTable(name, url, id) {
 		//console.log('populate');
 		 var alias = name.toLowerCase().split(' ').join('_') + '_' + id;
