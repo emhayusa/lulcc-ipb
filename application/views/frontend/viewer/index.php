@@ -936,7 +936,7 @@ require([
 		$("style").append('#resultView{width:500px;top:10px;right:80px;border:solid 1px #343a40}');
 		
 		$("style").append('.over{max-height:600px;overflow-y:auto;overflow-x:hidden}');
-		$("style").append('#metadataContent, #atributContent, #downloadContent, #queryContent, #legendContent,#layerListContent{max-height:500px;overflow-y:auto;overflow-x:hidden}');
+		$("style").append('#metadataContent, #atributContent, #downloadContent, #queryContent, #legendContent,#layerListContent,#resultContent{max-height:500px;overflow-y:auto;overflow-x:hidden}');
 		$("style").append('#tools{width:500px;top:400px;right:80px;border:solid 1px #343a40}');
 		$("style").append('#user{width:250px;top:15px;right:80px;}');
 		$("style").append('#extraMenu{height: 400px;background-color: rgba(255, 255, 255,1)}');
