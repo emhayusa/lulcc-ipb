@@ -38,6 +38,9 @@
                 <a href="frontend/viewer" target ="blank">Map</a>
               </li>
               <li>
+                <a <?php  if ($active_menu == 'documentation') echo 'class="active"';?> href="frontend/documentation">Documentation</a>
+              </li>
+              <li>
                 <a <?php //if ($active_menu == 'forests' || $active_menu == 'palm_oil' || $active_menu == 'paddy' || $active_menu == 'rubber' || $active_menu == 'coffe' || $active_menu == 'coccoa') echo 'class="active"';?>>Forest Cover Change</a>
                 <ul class="dropdown">
                   <!--
